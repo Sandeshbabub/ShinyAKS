@@ -27,6 +27,8 @@ echo -e ".  . .  .  . .  .  . .  .  . .  .  . .  .  . .
 echo "================================================================="
 
 echo "Welcome to the installation script of Full AKS..."
+echo "Type your environment Name:"
+read environment
 echo "Type your resource group Name:"
 read resourceGroupName
 echo "What is your deployment name?"
@@ -65,7 +67,7 @@ read aksdnsIP
 echo "Do you want to add Azure Firewall to the deployment? :(Y/N) "
 read answer
 if [[ $(echo $answer | grep -io y) == 'y' ]];then
-echo "What is your firewall name?"
+echo "What is your firewall name? i.e ktshinyazfwenv"
 read FW_NAME
 echo "what is your AZ Firewall Subnet prefix? i.e 10.0.4.0/24"
 read AzFirewallSubnet
@@ -96,6 +98,7 @@ objectId=$(az ad sp show --id $appId --query "objectId" -o tsv)
 
 cat <<EOF > parameters.json
 {
+  "env" : { "value": "$environment" },
   "aksServicePrincipalAppId": { "value": "$appId" },
   "aksServicePrincipalClientSecret": { "value": "$password" },
   "aksServicePrincipalObjectId": { "value": "$objectId" },
