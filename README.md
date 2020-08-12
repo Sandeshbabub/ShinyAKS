@@ -10,7 +10,7 @@ Feel free to contribute and add more files/functionality to this.
 
 <b>How to Install</b>
 
-git clone https://github.com/kmoussa/AKS.git
+git clone https://github.com/Sandeshbabub/ShinyAKS.git
 
 cd AKS
 
