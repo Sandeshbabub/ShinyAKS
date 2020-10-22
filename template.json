@@ -73,7 +73,7 @@
       }
     },
     "aksAgentVMSize": {
-      "defaultValue": "Standard_D3_v2",
+      "defaultValue": "Standard_E4as_v4",
       "allowedValues": [
         "Standard_A0",
         "Standard_A1",
